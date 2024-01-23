@@ -1,5 +1,4 @@
-import './main.css';
-import test from './modules/fatcoriesTest';
+import './styles/main.css';
+import todoBtn from './modules/main';
 
-test();
-console.log("test function called");
+todoBtn();

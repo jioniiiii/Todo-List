@@ -1,0 +1,20 @@
+.container{
+    height: 100vh;
+}
+
+
+.contForm{
+    margin: auto;
+    width: 25%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#todoForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
