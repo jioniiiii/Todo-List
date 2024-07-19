@@ -1,5 +1,6 @@
 import { addTodo } from './factory';
 import { closeForm } from './closeForm';
+
 const formtest = function(){
     const container = document.querySelector(".container");
     const contForm = document.createElement('div');
@@ -16,27 +17,19 @@ const formtest = function(){
         todoNameInput.required = true;
         form.appendChild(todoNameInput);
 
-    const descriptionInput = document.createElement('input');
-        descriptionInput.type = 'text';
-        descriptionInput.id = 'description';
-        descriptionInput.name = 'description';
-        descriptionInput.placeholder = 'Description';
-        descriptionInput.required = true;
-        form.appendChild(descriptionInput);
-
     const dateInput = document.createElement('input');
         dateInput.type = 'date';
         dateInput.id = 'dueDate';
         dateInput.name = 'dueDate';
         form.appendChild(dateInput);
    
-    const prioritySelect = document.createElement('select');
+    const prioritySelect = document.createElement('select');//maybe to three buttons with colors
         prioritySelect.id = 'priority';
         prioritySelect.name = 'priority';
         const placeholderOption = document.createElement('option');//for place holder
         placeholderOption.disabled = true;
         placeholderOption.selected = true;
-        placeholderOption.text = 'Select Priority';
+        placeholderOption.textContent = 'Select Priority';
         prioritySelect.appendChild(placeholderOption);
         const priorityOptions = ['High', 'Medium', 'Low'];
         priorityOptions.forEach(optionText => {
@@ -63,7 +56,7 @@ const formtest = function(){
     const cancelButton = document.createElement('button');
         cancelButton.type = 'button';
         cancelButton.textContent = 'Cancel';
-        cancelButton.addEventListener('click', closeForm);// gian ftaijeis des library
+        cancelButton.addEventListener('click', closeForm);
         form.appendChild(cancelButton);
 
     container.appendChild(contForm);
