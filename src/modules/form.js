@@ -1,7 +1,7 @@
 import { addTodo } from './factory';
 import { closeForm } from './closeForm';
 
-const formtest = function(){
+const formtest = function(callback){
     const container = document.querySelector(".container");
     const contForm = document.createElement('div');
         contForm.classList.add('contForm');
@@ -50,13 +50,18 @@ const formtest = function(){
     const submitButton = document.createElement('button');
         submitButton.type = 'button';
         submitButton.textContent = 'Submit';
-        submitButton.addEventListener('click', addTodo);
+        submitButton.addEventListener('click', function(){
+            addTodo();
+            closeForm(callback);
+        });
         form.appendChild(submitButton);
 
     const cancelButton = document.createElement('button');
         cancelButton.type = 'button';
         cancelButton.textContent = 'Cancel';
-        cancelButton.addEventListener('click', closeForm);
+        cancelButton.addEventListener('click', function(){
+            closeForm(callback);
+        });
         form.appendChild(cancelButton);
 
     container.appendChild(contForm);

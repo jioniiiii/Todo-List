@@ -1,20 +1,171 @@
-.container{
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    margin-left: 10px;
+}
+
+.container {
+    position: relative;
     height: 100vh;
+    padding: 20px;
 }
 
-
-.contForm{
-    margin: auto;
-    width: 25%;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#main {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
 }
 
-#todoForm{
+#button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#button:hover {
+    background-color: #0056b3;
+}
+
+/* Form Styles */
+.contForm {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+    animation: fadeIn 0.5s ease-out;
+}
+
+#todoForm {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap: 10px;
+}
+
+input, select, textarea, button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Error Message Styles */
+.errorEmpty {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    z-index: 2000;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.errorEmpty button {
+    background-color: #dc3545;
+    color: white;
+    margin-left: 10px;
+}
+
+.errorEmpty button:hover {
+    background-color: #c82333;
+}
+
+/* Card Styles */
+.card-cont {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0rem;
+    margin-top: 60px; 
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    position: relative;
+    transition: transform 0.3s ease;
+    animation: fadeIn 0.5s ease-out;
+    width: 75%;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 3000;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.modal button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.modal button:hover {
+    background-color: #c82333;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

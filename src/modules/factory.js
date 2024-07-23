@@ -2,6 +2,7 @@ import { closeForm } from './closeForm';
 import { display } from './DOM';
 import { showError } from './errorMsg/errorEmptyTodo';
 
+
     export const tempStorage = [];
 
     export function todo(todoName, dueDate, priority, notes) {
@@ -9,6 +10,19 @@ import { showError } from './errorMsg/errorEmptyTodo';
         this.dueDate = dueDate;
         this.priority = priority;
         this.notes = notes;
+    }
+    
+    export function saveToLocalStorage() {
+        localStorage.setItem('todos', JSON.stringify(tempStorage));
+    }
+
+    export function refreshDisplay() {
+        const container = document.querySelector(".card-cont");
+        container.innerHTML = ''; 
+    
+        tempStorage.forEach((todoItem, index) => {
+            display(index);
+        });
     }
 
     export function addTodo(){
@@ -34,9 +48,8 @@ import { showError } from './errorMsg/errorEmptyTodo';
 
         let newTodo = new todo(todoName, date, priority, notes);
         tempStorage.push(newTodo);
-
-        console.log(tempStorage);
-        alert(`Todo Name: ${todoName}\nPriority: ${priority}\nNotes: ${notes}`);
-        display(tempStorage.length - 1);
+        
+        saveToLocalStorage();
+        refreshDisplay();
         closeForm();
     }

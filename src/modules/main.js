@@ -1,15 +1,9 @@
 import formtest from "./form";
 const todoBtn = function() {
 
+    let clicked = false
 
     let container = document.querySelector(".container");
-
-
-
-    if (!container) {
-        console.error("Container not found");
-        return;
-    }
 
     const main = document.createElement("div");
     main.id = "main";
@@ -17,11 +11,18 @@ const todoBtn = function() {
 
     const button = document.createElement("button");
     button.id = "button";
-    button.textContent = "factory test";
+    button.textContent = "Add Todo";
     main.appendChild(button);
 
     button.addEventListener("click", function() {
-        formtest();
+        if(clicked) {
+            return;
+        } else {
+            clicked = true;
+            formtest(() => {
+                clicked = false;
+            });
+        }
     });
 
     return main;
